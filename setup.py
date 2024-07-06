@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="enterpret_claims_extractor",
-    version="0.1.1",
+    version="0.1.2",
     author="Mohd Arshad",
     author_email="mdarshad1000@gmail.com",
     description="A tool for extracting claims from various types of records",
