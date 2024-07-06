@@ -17,6 +17,19 @@ Install Claims Extractor using pip:
 pip install enterpret-claims-extractor
 ```
 
+#### Set your OPENAI API KEY
+1. Create a .env file in the root directory of your application and add your OpenAI API Key
+```sh
+OPENAI_API_KEY=sk-*************************
+```
+
+2. Run the following command in the terminal
+```sh
+export OPENAI_API_KEY=sk-*************************
+```
+
+3. Initialise the `extractor` and it will prompt you for your OPENAI_API_KEY
+
 ## Usage
 
 ### Importing the Package
