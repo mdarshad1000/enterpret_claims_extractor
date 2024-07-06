@@ -3,3 +3,4 @@ __pycache__
 dist
 build
 enterpret_claims_extractor.egg-info
+myenv

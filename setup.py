@@ -11,6 +11,7 @@ setup(
     install_requires=[
         "openai",
         "nltk",
+        "python-dotenv"
     ],
     python_requires=">=3.7",
 )

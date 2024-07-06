@@ -1,13 +1,27 @@
 import re
-from typing import Dict
+from typing import Dict, List
 from nltk.tokenize import sent_tokenize
-import datetime
+import csv
+
+def read_records_from_csv(file_path: str, row_ids: List[str]=None):
+    records = []
+    with open(file_path, mode='r', encoding='utf-8') as file:
+        csv_reader = csv.DictReader(file)
+        for row in csv_reader:
+            if row_ids is None or row["ID"] in row_ids:
+                records.append({
+                    "id": row["ID"],
+                    "url": row["URL"],
+                    "type": row["Type"],
+                    "source": row["Source"],
+                    "timestamp": row["CreatedAt"],
+                    "content": row["Content"]
+                })
+    return records
 
 def split_content_based_on_type(content: str, content_type: str) -> Dict[int, str]:
-    if content_type == "RecordTypeAudioRecording":
-        return {1: "<AUDIO_CONTENT>"}
-
-    elif isinstance(content, str) and content is not None:
+    
+    if isinstance(content, str) and content is not None:
         if content_type == "RecordTypeConversation":
             dialogues = re.split(r"(?=User:|Agent:)", content)
             dialogues = [dialogue.strip() for dialogue in dialogues if dialogue != '']
